@@ -3,6 +3,8 @@ Welcome to the Pokedex!
 Usage:
 
 exit: Exit the Pokedex
-help: Displays a help command
+help: Displays a help message
+map: Get the next page of locations
+mapb: Get the previous page of locations
 
 Pokedex > Closing the Pokedex... Goodbye!

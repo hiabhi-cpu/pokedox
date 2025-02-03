@@ -1,16 +1,14 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
-func commandHelp(con *config) error {
+func commandHelp(cfg *config, parameter []string) error {
 	fmt.Println()
 	fmt.Println("Welcome to the Pokedex!")
 	fmt.Println("Usage:")
 	fmt.Println()
-	for _, cmd := range getCommands(con) {
-		fmt.Printf("%s: %s\n", cmd.name, cmd.descrption)
+	for _, cmd := range getCommands() {
+		fmt.Printf("%s: %s\n", cmd.name, cmd.description)
 	}
 	fmt.Println()
 	return nil
