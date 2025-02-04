@@ -20,7 +20,7 @@ func commandCatch(cfg *config, parameter []string) error {
 		fmt.Printf("%v was caught!\n", pokemon.Name)
 		cfg.pokiuser.Pokemons[pokemon.Name] = pokemon
 		cfg.pokiuser.Experince -= pokemon.BaseExperience
-		fmt.Println(cfg.pokiuser.Pokemons)
+		fmt.Println("You may now inspect it with the inspect command.")
 		return nil
 	}
 	fmt.Printf("%v escaped!\n", pokemon.Name)

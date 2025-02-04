@@ -7,13 +7,13 @@ import (
 	"net/http"
 )
 
-func (c *Client) GetPokemon(pokiUrl string) (pokemon, error) {
+func (c *Client) GetPokemon(pokiUrl string) (Pokemon, error) {
 	url := baseURL + pokiUrl
 
 	if val, ok := c.cache.Get(url); ok {
-		poke := pokemon{}
+		poke := Pokemon{}
 		if err := json.Unmarshal(val, &poke); err != nil {
-			return pokemon{}, err
+			return Pokemon{}, err
 		}
 		fmt.Println("From cache")
 		return poke, nil
@@ -21,24 +21,24 @@ func (c *Client) GetPokemon(pokiUrl string) (pokemon, error) {
 
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
-		return pokemon{}, err
+		return Pokemon{}, err
 	}
 
 	res, err := c.httpClient.Do(req)
 	if err != nil {
-		return pokemon{}, err
+		return Pokemon{}, err
 	}
 	defer res.Body.Close()
 
 	data, err := io.ReadAll(res.Body)
 	if err != nil {
-		return pokemon{}, err
+		return Pokemon{}, err
 	}
 
-	poki := pokemon{}
+	poki := Pokemon{}
 
 	if err := json.Unmarshal(data, &poki); err != nil {
-		return pokemon{}, err
+		return Pokemon{}, err
 	}
 
 	c.cache.Add(url, data)
