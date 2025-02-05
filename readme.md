@@ -32,7 +32,28 @@ To install Pokedox, ensure you have Go installed on your system. Then, follow th
 ```bash
   ./pokedox
 ```
-    
+
+
+## Installation with docker 
+
+#### 1. Clone the project
+
+```bash
+  git clone https://github.com/hiabhi-cpu/pokedox.git
+  cd pokedox
+```
+
+#### 2. Build docker image
+
+```bash
+  docker build -t pokedox .
+```  
+#### 3. Run the container
+
+```bash
+  docker run --rm -it pokedox
+```    
+
 ## Usage
 Once the application is running, you can use the following commands:
 
